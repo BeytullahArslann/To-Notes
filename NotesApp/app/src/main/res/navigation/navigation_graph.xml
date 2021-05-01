@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/mainMenu">
+
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.beytullaharslan.notesapp.MainMenuFragment"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_notes"
+            app:destination="@id/notes" />
+        <action
+            android:id="@+id/action_mainMenu_to_todo"
+            app:destination="@id/todo" />
+    </fragment>
+    <fragment
+        android:id="@+id/todo"
+        android:name="com.beytullaharslan.notesapp.TodoFragment"
+        android:label="fragment_todo"
+        tools:layout="@layout/fragment_todo" >
+        <action
+            android:id="@+id/action_todo_to_notes"
+            app:destination="@id/notes" />
+        <action
+            android:id="@+id/action_todo_self"
+            app:destination="@id/todo" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="information"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_todo_to_mainMenu"
+            app:destination="@id/mainMenu" />
+    </fragment>
+    <fragment
+        android:id="@+id/notes"
+        android:name="com.beytullaharslan.notesapp.NotesFragment"
+        android:label="fragment_notes"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_notes_to_todo"
+            app:destination="@id/todo" />
+        <action
+            android:id="@+id/action_notes_self"
+            app:destination="@id/notes" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="information"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+</navigation>
